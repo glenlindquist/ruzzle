@@ -1,0 +1,13 @@
+<div class="input-box">
+  <form action="/ruzzle" method="post">
+    <textarea name="ruzzle_content" id="ruzzle_content"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="output-box">
+  <script>
+    <%= @compiled_js %>;
+  </script>
+</div>
