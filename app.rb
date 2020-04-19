@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'opal'
 
-INIT_GRID = IO.read('app/application.rb')
 
 DRAW_CANVAS = "
 \n$document.ready do\n
@@ -12,7 +11,9 @@ end
 "
 
 get '/' do
-  rb_string = [INIT_GRID, DRAW_CANVAS].join("\n")
+  init_grid = IO.read('app/application.rb')
+
+  rb_string = [init_grid, DRAW_CANVAS].join("\n")
 
   builder = Opal::Builder.new
   builder.build_str(rb_string, '(inline)')
